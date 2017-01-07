@@ -3,10 +3,13 @@
 require "cgilib.pl";
 use SNMP_util;
 &PrintHeader();
-$MIB1 = ".1.3.6.1.2.1.17.4.3.1.2";
+$MIB1 = ".1.3.6.1.2.1.17.4.4.1.3";
 $HOST = "public\@192.168.1.1";
 ($MIB1) && ($HOST) || die "Usage: $0 MIB_OID HOSTNAME";
-($value) = &snmpgetnext("$HOST","$MIB1");
+my @value;
+(@value) = &snmpwalk("$HOST","$MIB1");
+print $value[3]."\n";
+print $value[7]."\n";
 #my $value = hex substr $value, 0, 1, '';
 #$value = "0" . $value;
 #use Encode qw(decode encode);
@@ -17,25 +20,25 @@ $HOST = "public\@192.168.1.1";
 #my @months = map hex, qw/x240 x118 x28 x116 x212 x164 /;
 #print "$_\n" for @months;
 
-my $value = substr $value, 23;
-print $value;
+#my $value = substr $value, 23;
+#print $value;
 
 
-my @strr;
+#my @strr;
 
-my @values = split(':', $value);
-$k=0;
-foreach my $val (@values) {
-  $strr[$k] = $val;
+#my @values = split(':', $value);
+#$k=0;
+#foreach my $val (@values) {
+  #$strr[$k] = $val;
   #print "$val\n";
-  $k++;
-}
+  #$k++;
+#}
 
-print $strr[0];
-print $strr[1];
+#print $strr[0];
+#print $strr[1];
 
 if ($value) { print "Results :$MIB1: :$value:\n"; }
 else { warn "No response from host :$HOST:\n"; }
 #($result) = &snmpset("$HOST", "$MIB1", 'integer', 2000);
 
-print $result;
+#print $result;
