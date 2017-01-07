@@ -33,72 +33,30 @@ $html = << "HERE";
           aryPara[ParaVal[0]] = 0;
       }
     }
+
     function loadDate(){
       var HTML = "<table border=1 width=100%>";
       HTML += "<tr>";
-        HTML += "<td align=center>"+Port+"</td>";
-        HTML += "<td align=center>"+Speed+"</td>";
-        HTML += "<td align=center>"+Macaddress+"</td>";
+        HTML += "<td align=center>Port</td>";
+        HTML += "<td align=center>Speed</td>";
+        HTML += "<td align=center>Macaddress</td>";
       HTML += "</tr>";
 
-      if(aryPara.port)
+      if(aryPara.port == 4)
       {
         HTML += "<tr>";
           HTML += "<td align=center>"+aryPara.port+"</td>";
-          HTML += "<td align=center>"+aryPara.speed+"</td>";
+          HTML += "<td align=center>"+aryPara.p4+"</td>";
           HTML += "<td align=center>"+aryPara.mac+"</td>";
         HTML += "</tr>";
       }
 
       HTML += "</table>";
       document.getElementById("outputDiv").innerHTML = HTML;
-      /*
-      if(aryPara.p1)
-        document.getElementById("date").innerHTML = aryPara.p1;
-      else
-        document.getElementById("date").innerHTML = "none";
-
-      if(aryPara.p2)
-        document.getElementById("date").innerHTML = aryPara.p2;
-      else
-        document.getElementById("date").innerHTML = "none";
-        if(aryPara.p3)
-          document.getElementById("date").innerHTML = aryPara.p3;
-        else
-          document.getElementById("date").innerHTML = "none";
-
-        if(aryPara.p4)
-          document.getElementById("date").innerHTML = aryPara.p4;
-        else
-          document.getElementById("date").innerHTML = "none";
-
-          if(aryPara.p5)
-            document.getElementById("date").innerHTML = aryPara.p5;
-          else
-            document.getElementById("date").innerHTML = "none";
-
-          if(aryPara.p6)
-            document.getElementById("date").innerHTML = aryPara.p6;
-          else
-            document.getElementById("date").innerHTML = "none";
-
-            if(aryPara.p7)
-              document.getElementById("date").innerHTML = aryPara.p7;
-            else
-              document.getElementById("date").innerHTML = "none";
-
-            if(aryPara.p8)
-              document.getElementById("date").innerHTML = aryPara.p8;
-            else
-              document.getElementById("date").innerHTML = "none";
-
-              if(aryPara.p9)
-                document.getElementById("date").innerHTML = aryPara.p9;
-              else
-                document.getElementById("date").innerHTML = "none";*/
     }
+
   </script>
-  <body onload="loadDate()">
+  <body onload="loadDate(); Test();">
     <a href="getPortStatus.pl">獲得</a>
     <div id="outputDiv"></div>
   </body>
