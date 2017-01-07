@@ -3,7 +3,7 @@
 require "cgilib.pl";
 use SNMP_util;
 &PrintHeader();
-$MIB1 = ".1.3.6.1.2.1.2.2.1.5.7";
+$MIB1 = ".1.3.6.1.2.1.17.4.3.1.2";
 $HOST = "public\@192.168.1.1";
 ($MIB1) && ($HOST) || die "Usage: $0 MIB_OID HOSTNAME";
 ($value) = &snmpgetnext("$HOST","$MIB1");
@@ -13,12 +13,29 @@ $HOST = "public\@192.168.1.1";
 #$value = decode('utf8', $value,     Encode::FB_CROAK);
 #$octets     = encode('UTF-8', $characters, Encode::FB_CROAK);
 
-#print hex($value) ;
-#my @months = map hex, qw/x01 x02 x03 x04 x05 x06 x07 x08 x09 x0a x0b x0c/;
+
+#my @months = map hex, qw/x240 x118 x28 x116 x212 x164 /;
 #print "$_\n" for @months;
 
+my $value = substr $value, 23;
+print $value;
+
+
+my @strr;
+
+my @values = split(':', $value);
+$k=0;
+foreach my $val (@values) {
+  $strr[$k] = $val;
+  #print "$val\n";
+  $k++;
+}
+
+print $strr[0];
+print $strr[1];
 
 if ($value) { print "Results :$MIB1: :$value:\n"; }
 else { warn "No response from host :$HOST:\n"; }
 #($result) = &snmpset("$HOST", "$MIB1", 'integer', 2000);
+
 print $result;
