@@ -9,7 +9,7 @@ $html = << "HERE";
 <html>
   <head>
     <meta charset="utf-8">
-    <title>date</title>
+    <title>Mac</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
   </head>
   <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
@@ -34,7 +34,7 @@ $html = << "HERE";
       }
     }
 
-    function loadDate(){
+    function loadMac(){
       var HTML = "<table border=1 width=100%>";
       HTML += "<tr>";
         HTML += "<td align=center>Port</td>";
@@ -56,7 +56,7 @@ $html = << "HERE";
     }
 
   </script>
-  <body onload="loadDate(); Test();">
+  <body onload="loadMac()">
     <a href="getPortStatus.pl">獲得</a>
     <div id="outputDiv"></div>
   </body>
