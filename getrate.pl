@@ -120,7 +120,7 @@ $html = << "HERE";
         </tr>
         <tr>
           <td>5</td>
-          <td>$PortStatus[4]</td>
+          <td>$PortStatus[4]<span style="float:right">HI</span></td>
           <td>$PortIn[4]</td>
           <td>$PortOut[4]</td>
         </tr>
